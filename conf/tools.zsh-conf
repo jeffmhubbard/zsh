@@ -1,6 +1,8 @@
 # conf/tools.zsh
 
+#
 # configure external tools
+#
 
 # fzf 
 if (( ${+commands[fzf]} ))

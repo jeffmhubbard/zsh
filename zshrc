@@ -1,10 +1,15 @@
 #!/usr/bin/zsh
 
+#
+# zsh config
+# ln -s zshrc $HOME/.zshrc
+#
+
 # set path to zsh directory
 export ZSH=$HOME/.zsh
 
 # set prompt theme
-ZSH_THEME="antsy"
+#ZSH_THEME="antsy"
 
 # define plugins
 typeset -a plugins

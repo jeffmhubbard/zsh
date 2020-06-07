@@ -1,6 +1,9 @@
 # conf/completion.zsh
 
+#
 # enable completions
+# mostly copied from OMZ
+#
 
 zmodload -i zsh/complist
 

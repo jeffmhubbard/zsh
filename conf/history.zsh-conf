@@ -1,3 +1,9 @@
+# conf/history.zsh
+
+#
+# config history file and settings
+#
+
 ## History file configuration
 [ -z "$HISTFILE" ] && HISTFILE="$ZSH_CACHE_DIR/history.db"
 export HISTSIZE=100000
@@ -14,3 +20,5 @@ setopt inc_append_history     # add commands to HISTFILE in order of execution
 setopt share_history          # share command history data
 setopt append_history         # append to history
 setopt hist_find_no_dups      # don't show dups in history search
+
+# vim: set ft=zsh ts=2 sw=0 et:

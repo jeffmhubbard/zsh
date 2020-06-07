@@ -14,7 +14,7 @@ export FORGIT_FZF_DEFAULT_OPTS="
   --color=fg+:15,bg+:-1,hl+:14
   --color=info:13,prompt:15,spinner:10
   --color=pointer:14,marker:9,header:8
-  --border sharp
+  --border=sharp
   --reverse
   --cycle
   --exact

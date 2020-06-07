@@ -1,13 +1,22 @@
+# init.zsh
+
+#
+# setup shell, load plugins and configs
+#
+
+# don't do anything if not interactive
+[[ ! -o interactive ]] && return
+
 # paths
 ZSH_CACHE_DIR="${ZSH}/cache"
 ZSH_CONF_DIR="${ZSH}/conf"
 ZSH_PLUGIN_DIR="${ZSH}/plugins"
 ZSH_THEME_DIR="${ZSH}/themes"
 
+[[ ! -d $ZSH_CACHE_DIR ]] && mkdir -p $ZSH_CACHE_DIR
 
 # setup completion
 autoload -U compaudit compinit
-
 if [ -z "$ZSH_COMPDUMP" ]
 then
   ZSH_COMPDUMP="${ZSH_CACHE_DIR}/completions.db"

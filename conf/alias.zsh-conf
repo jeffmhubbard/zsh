@@ -1,5 +1,9 @@
 # conf/alias.zsh
 
+#
+# set aliases and load additional alias configs
+#
+
 # common
 alias _='sudo '
 
