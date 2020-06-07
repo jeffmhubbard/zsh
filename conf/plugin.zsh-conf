@@ -1,0 +1,52 @@
+# conf/plugin.zsh
+
+# configure plugins
+
+# z
+export _Z_DATA=${ZSH_CACHE_DIR}/z.db
+
+# forgit
+export FORGIT_FZF_DEFAULT_OPTS="
+  --ansi
+  --height 100%
+  --color=dark
+  --color=fg:-1,bg:-1,hl:11
+  --color=fg+:15,bg+:-1,hl+:14
+  --color=info:13,prompt:15,spinner:10
+  --color=pointer:14,marker:9,header:8
+  --border sharp
+  --reverse
+  --cycle
+  --exact
+"
+
+# zsh-autosuggestions
+bindkey '^[ ' autosuggest-accept
+
+# zsh-history-substring-search
+#export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="bg=yellow,fg=black,underline"
+#export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="bg=red,fg=black,underline"
+#
+#bindkey "$terminfo[kcuu1]" history-substring-search-up
+#bindkey "$terminfo[kcud1]" history-substring-search-down
+#bindkey -M vicmd 'k' history-substring-search-up
+#bindkey -M vicmd 'j' history-substring-search-down
+
+# auto-notify
+#export AUTO_NOTIFY_EXPIRE_TIME=600
+#export AUTO_NOTIFY_THRESHOLD=60
+export AUTO_NOTIFY_WHITELIST=("pacman" "aur" "makepkg" "pip" "wget" "curl" "tar" "unzip" "dd")
+
+# you-should-use
+export YSU_MESSAGE_FORMAT="$(tput bold)$(tput setaf 7) $(tput sgr0)\
+Found $(tput bold)$(tput setaf 3)%alias_type$(tput sgr0) for \
+$(tput bold)$(tput setaf 6)%command$(tput sgr0), \
+use: $(tput smul)$(tput setaf 2)%alias$(tput sgr0)"
+
+# autoswitch_virtualenv
+export AUTOSWITCH_MESSAGE_FORMAT="$(tput bold)$(tput setaf 7) $(tput sgr0)\
+Activating $(tput bold)$(tput setaf 3)%venv_type$(tput sgr0): \
+$(tput bold)$(tput setaf 6)%venv_name$(tput sgr0) \
+$(tput bold)$(tput setaf 2) %py_version$(tput sgr0)"
+
+# vim: set ft=zsh ts=2 sw=0 et:

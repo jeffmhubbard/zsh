@@ -1,0 +1,57 @@
+# conf/alias.zsh
+
+# common
+alias _='sudo '
+
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+alias -g ......='../../../../..'
+
+alias md='mkdir -p'
+alias rd=rmdir
+
+alias ls='ls --color=auto'
+alias lsa='ls -lah'
+alias l='ls -lah'
+alias ll='ls -lh'
+alias la='ls -lAh'
+
+alias grep="grep -s --color=auto"
+alias egrep="egrep -s --color=auto"
+alias fgrep="fgrep -s --color=auto"
+
+alias cat="bat -pp"
+alias less=bat
+
+alias h='history'
+alias hs='history | grep'
+alias hsi='history | grep -i'
+
+alias ip="ip -c"
+
+alias psc="ps -eo pid,cmd,%cpu --sort=-%cpu | head"
+alias psm="ps -eo pid,cmd,%mem --sort=-%mem | head"
+
+# dotfiles git alias
+alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+
+# update plugins
+alias update_vim_plugins="~/.vim/bundle && find . -name .git -type d -execdir git pull ';'"
+alias update_zsh_plugins="${ZSH_PLUGIN_DIR} && find . -name .git -type d -execdir git pull ';'"
+
+# wttr
+alias weather="curl -s 'wttr.in/aus?0'"
+alias forecast="curl -s 'wttr.in/aus'"
+
+
+# load alias snippets
+[[ ! -d $ZSH_CONF_DIR/alias ]] && return
+
+for config in $(ls $ZSH_CONF_DIR/alias/*.zsh-conf)
+do
+  source $config
+done
+unset config
+
+# # vim: set ft=zsh ts=2 sw=0 et:

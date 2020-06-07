@@ -1,0 +1,74 @@
+# conf/bindings.zsh
+
+# setup key bindings
+# this is mostly OMZ vi-mode plugin
+
+# Make sure that the terminal is in application mode when zle is active, since
+# only then values from $terminfo are valid
+if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
+  function zle-line-init() {
+    echoti smkx
+  }
+  function zle-line-finish() {
+    echoti rmkx
+  }
+  zle -N zle-line-init
+  zle -N zle-line-finish
+fi
+
+# Updates editor information when the keymap changes.
+function zle-keymap-select() {
+  # update keymap variable for the prompt
+  VI_KEYMAP=$KEYMAP
+
+  zle reset-prompt
+  zle -R
+}
+
+zle -N zle-keymap-select
+
+function vi-accept-line() {
+  VI_KEYMAP=main
+  zle accept-line
+}
+
+zle -N vi-accept-line
+
+export KEYTIMEOUT=11
+bindkey -v
+
+# start typing + [Up-Arrow] - fuzzy find history forward
+if [[ "${terminfo[kcuu1]}" != "" ]]; then
+  autoload -U up-line-or-beginning-search
+  zle -N up-line-or-beginning-search
+  bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search
+fi
+# start typing + [Down-Arrow] - fuzzy find history backward
+if [[ "${terminfo[kcud1]}" != "" ]]; then
+  autoload -U down-line-or-beginning-search
+  zle -N down-line-or-beginning-search
+  bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
+fi
+
+# use custom accept-line widget to update $VI_KEYMAP
+bindkey -M vicmd '^J' vi-accept-line
+bindkey -M vicmd '^M' vi-accept-line
+
+# allow v to edit the command line (standard behaviour)
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd 'v' edit-command-line
+
+# allow ctrl-p, ctrl-n for navigate history (standard behaviour)
+bindkey '^P' up-history
+bindkey '^N' down-history
+
+# allow ctrl-h, ctrl-w, ctrl-? for char and word deletion (standard behaviour)
+bindkey '^h' backward-delete-char
+bindkey '^w' backward-kill-word
+
+# allow ctrl-a and ctrl-e to move to beginning/end of line
+bindkey '^a' beginning-of-line
+bindkey '^e' end-of-line
+
+# vim: set ft=zsh ts=2 sw=0 et:

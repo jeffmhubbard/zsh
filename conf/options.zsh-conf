@@ -1,0 +1,15 @@
+export REPORTTIME=3         # Report time statistics
+setopt notify               # Report status of bg jobs immediately
+setopt no_hup               # Don't kill background jobs when exiting
+setopt no_clobber           # Don't clobber existing files with >
+setopt no_beep              # Don't beep
+setopt no_bg_nice           # Don't frob with nicelevels
+setopt interactive_comments # Allow comments in interactive shells
+setopt no_autoremoveslash   # Don't guess when slashes should be removed (too magic)
+setopt no_match             # Show error if globbing fails
+setopt extended_glob        # More globbing characters
+setopt correct              # Offer to correct command if not found
+
+#setopt bang_hist
+
+# vim: set ft=zsh ts=2 sw=0 et:
