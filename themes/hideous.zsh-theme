@@ -1,4 +1,5 @@
-# hideous example
+# hideous example theme
+
 PROMPT_USER_COLOR="%B%F{57}"
 PROMPT_USER_ICON=" %B%F{43}"
 PROMPT_ROOT_COLOR="%B%F{74}"
@@ -43,3 +44,5 @@ PROMPT_SELECT_COLOR="%B%F{87}"
 PROMPT_SELECT_ICON=" "
 PROMPT_MARKER_COLOR="%B%F{234}"
 PROMPT_MARKER_ICON="─" # U+2500
+
+# vim: set ft=zsh ts=2 sw=0 et:

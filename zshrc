@@ -9,7 +9,7 @@
 export ZSH=$HOME/.zsh
 
 # set prompt theme
-#ZSH_THEME="antsy"
+ZSH_THEME="antsy"
 
 # define plugins
 typeset -a plugins
