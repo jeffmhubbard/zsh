@@ -9,12 +9,13 @@
 export ZSH=$HOME/.zsh
 
 # set prompt theme
-ZSH_THEME="antsy"
+#ZSH_THEME="none"
 
 # define plugins
 typeset -a plugins
 plugins+=(zsh-completions)
 plugins+=(zsh-autosuggestions)
+plugins+=(zsh-history-substring-search)
 plugins+=(zsh-autopair)
 plugins+=(z)
 plugins+=(fz)

@@ -1,6 +1,8 @@
 # conf/plugin.zsh
 
+#
 # configure plugins
+#
 
 # z
 export _Z_DATA=${ZSH_CACHE_DIR}/z.db
@@ -14,7 +16,7 @@ export FORGIT_FZF_DEFAULT_OPTS="
   --color=fg+:15,bg+:-1,hl+:14
   --color=info:13,prompt:15,spinner:10
   --color=pointer:14,marker:9,header:8
-  --border=sharp
+  --preview-window noborder
   --reverse
   --cycle
   --exact
@@ -24,17 +26,17 @@ export FORGIT_FZF_DEFAULT_OPTS="
 bindkey '^[ ' autosuggest-accept
 
 # zsh-history-substring-search
-#export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="bg=yellow,fg=black,underline"
-#export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="bg=red,fg=black,underline"
-#
-#bindkey "$terminfo[kcuu1]" history-substring-search-up
-#bindkey "$terminfo[kcud1]" history-substring-search-down
-#bindkey -M vicmd 'k' history-substring-search-up
-#bindkey -M vicmd 'j' history-substring-search-down
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="bg=yellow,fg=black,underline"
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="bg=red,fg=black,underline"
+
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 
 # auto-notify
 #export AUTO_NOTIFY_EXPIRE_TIME=600
-#export AUTO_NOTIFY_THRESHOLD=60
+export AUTO_NOTIFY_THRESHOLD=60
 export AUTO_NOTIFY_WHITELIST=("pacman" "aur" "makepkg" "pip" "wget" "curl" "tar" "unzip" "dd")
 
 # you-should-use

@@ -1,13 +1,13 @@
 # conf/colors.zsh
 
 #
-# enable colors
+# configure color support
 #
 
 autoload -U colors && colors
 
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
-eval "$(dircolors -b $ZSH/colors.conf)"
+eval "$(dircolors -b $ZSH_CONF_DIR/dircolors)"
 
 setopt auto_cd
 setopt multios

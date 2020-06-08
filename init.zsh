@@ -30,11 +30,7 @@ do
   plugdir=${ZSH_PLUGIN_DIR}/$plugin
   for script in $plugdir/$plugin.plugin.zsh $plugdir/$plugin.zsh $plugdir/$plugin.sh
   do
-    if [[ -f $script ]]
-    then
-      source $script
-      break
-    fi
+    [[ -f $script ]] && { source $script; break }
   done
 done
 unset plugin plugdir script
