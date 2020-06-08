@@ -15,15 +15,15 @@ export ZSH=$HOME/.zsh
 typeset -a plugins
 plugins+=(zsh-completions)
 plugins+=(zsh-autosuggestions)
-plugins+=(zsh-history-substring-search)
 plugins+=(zsh-autopair)
 plugins+=(z)
 plugins+=(fz)
 plugins+=(forgit)
-plugins+=(fast-syntax-highlighting)
 plugins+=(you-should-use)
 plugins+=(auto-notify)
 plugins+=(autoswitch_virtualenv)
+plugins+=(fast-syntax-highlighting)
+plugins+=(zsh-history-substring-search)
 
 # load init script
 source ${ZSH}/init.zsh

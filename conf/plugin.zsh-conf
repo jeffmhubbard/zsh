@@ -23,19 +23,18 @@ export FORGIT_FZF_DEFAULT_OPTS="
 "
 
 # zsh-autosuggestions
-bindkey '^[ ' autosuggest-accept
+bindkey '^[ ' autosuggest-accept    # Alt+Space
 
 # zsh-history-substring-search
-export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="bg=yellow,fg=black,underline"
-export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="bg=red,fg=black,underline"
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="fg=yellow,bold,underline"
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=red,bold,underline"
 
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
+bindkey '^[[1;2A' history-substring-search-up       # Shift+Up
+bindkey '^[[1;2B' history-substring-search-down     # Shift+Down
+bindkey -M vicmd 'K' history-substring-search-up    # Shift+k
+bindkey -M vicmd 'J' history-substring-search-down  # Shift+j
 
 # auto-notify
-#export AUTO_NOTIFY_EXPIRE_TIME=600
 export AUTO_NOTIFY_THRESHOLD=60
 export AUTO_NOTIFY_WHITELIST=("pacman" "aur" "makepkg" "pip" "wget" "curl" "tar" "unzip" "dd")
 
