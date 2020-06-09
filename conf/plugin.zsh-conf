@@ -29,10 +29,10 @@ bindkey '^[ ' autosuggest-accept    # Alt+Space
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="fg=yellow,bold,underline"
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=red,bold,underline"
 
-bindkey '^[[1;2A' history-substring-search-up       # Shift+Up
-bindkey '^[[1;2B' history-substring-search-down     # Shift+Down
-bindkey -M vicmd 'K' history-substring-search-up    # Shift+k
-bindkey -M vicmd 'J' history-substring-search-down  # Shift+j
+bindkey -M viins '^[[1;2A' history-substring-search-up      # Shift+Up
+bindkey -M viins '^[[1;2B' history-substring-search-down    # Shift+Down
+bindkey -M vicmd 'K' history-substring-search-up            # Shift+k
+bindkey -M vicmd 'J' history-substring-search-down          # Shift+j
 
 # auto-notify
 export AUTO_NOTIFY_THRESHOLD=60

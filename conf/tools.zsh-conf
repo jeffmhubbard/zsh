@@ -34,4 +34,10 @@ then
   fi
 fi
 
+# command-not-found
+#if test -e /usr/share/doc/pkgfile/command-not-found.zsh
+#then
+#  source /usr/share/doc/pkgfile/command-not-found.zsh
+#fi
+
 # vim: set ft=zsh ts=2 sw=0 et:

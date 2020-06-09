@@ -75,13 +75,15 @@ function prompt_userhost {
   host_icon=${PROMPT_HOST_ICON:-${PROMPT_DEFAULTS[HOST_ICON]}}
 
   # detect root
-  if [ $UID -eq 0 ]; then
+  if [ $UID -eq 0 ]
+  then \
     user_color=${PROMPT_ROOT_COLOR:-${PROMPT_DEFAULTS[ROOT_COLOR]}}
     user_icon=${PROMPT_ROOT_ICON:-${PROMPT_DEFAULTS[ROOT_ICON]}}
   fi
 
   # detect ssh
-  if [ -v SSH_CONNECTION ]; then
+  if [ -v SSH_CONNECTION ]
+  then
     host_color=${PROMPT_SSH_COLOR:-${PROMPT_DEFAULTS[SSH_COLOR]}}
     host_icon=${PROMPT_SSH_ICON:-${PROMPT_DEFAULTS[SSH_ICON]}}
   fi
@@ -102,7 +104,8 @@ function prompt_path {
 # show git info (branch, commit, and status)
 # PROMPT_GIT_SHA_ICON must be set to display commit hash
 function prompt_gitinfo {
-  if typeset -f git_prompt_info >/dev/null; then
+  if typeset -f git_prompt_info >/dev/null
+  then
     typeset -g ZSH_THEME_GIT_PROMPT_PREFIX=""
     typeset -g ZSH_THEME_GIT_PROMPT_SUFFIX=""
     typeset -g ZSH_THEME_GIT_PROMPT_DIRTY=""
@@ -124,8 +127,10 @@ function prompt_gitinfo {
     state=$(git_prompt_status)
     state_color=${PROMPT_GIT_STATE_COLOR:-${PROMPT_DEFAULTS[GIT_STATE_COLOR]}}
 
-    if [[ -n $branch ]]; then
-      if [[ -v PROMPT_GIT_SHA_ICON ]]; then
+    if [[ -n $branch ]]
+    then
+      if [[ -v PROMPT_GIT_SHA_ICON ]]
+      then
         sha_color=${PROMPT_GIT_SHA_COLOR:-${PROMPT_DEFAULTS[GIT_SHA_COLOR]}}
         sha_icon=${PROMPT_GIT_SHA_ICON}
         sha_short=$(git_prompt_short_sha)
@@ -144,7 +149,8 @@ function prompt_jobs {
   icon=${PROMPT_JOBS_ICON:-${PROMPT_DEFAULTS[JOBS_ICON]}}
   running=$(jobs -l | wc -l)
 
-  if [[ $running -ne 0 ]]; then
+  if [[ $running -ne 0 ]]
+  then
     echo "${color}${icon}${running}${endf} "
   fi
 }
@@ -155,7 +161,8 @@ function prompt_history {
   color=${PROMPT_HISTORY_COLOR:-${PROMPT_DEFAULTS[HISTORY_COLOR]}}
   icon=${PROMPT_HISTORY_ICON:-${PROMPT_DEFAULTS[HISTORY_ICON]}}
 
-  if [[ -v PROMPT_HISTORY_ICON ]]; then
+  if [[ -v PROMPT_HISTORY_ICON ]]
+  then
     echo "${color}${icon}%!${endf} "
   fi
 }
@@ -171,14 +178,16 @@ function prompt_timestamp {
 
 # show python virtualenv
 function prompt_virtualenv {
-  if typeset -f virtualenv_prompt_info >/dev/null; then
+  if typeset -f virtualenv_prompt_info >/dev/null
+  then
     local color icon venv
     color=${PROMPT_VENV_COLOR:-${PROMPT_DEFAULTS[VENV_COLOR]}}
     icon=${PROMPT_VENV_ICON:-${PROMPT_DEFAULTS[VENV_ICON]}}
     # strip brackets
     venv="$(virtualenv_prompt_info | sed 's/[][]//g')"
 
-    if [[ -n $venv ]]; then
+    if [[ -n $venv ]]
+    then
       echo "${color}${icon}${venv}${endf} "
     fi
   fi
@@ -186,7 +195,8 @@ function prompt_virtualenv {
 
 # show vi-mode
 function prompt_vimode {
-  if typeset -f vi_mode_prompt_info >/dev/null; then
+  if typeset -f vi_mode_prompt_info >/dev/null
+  then
     typeset -g MODE_INDICATOR=${PROMPT_VIM_COLOR_ALT:-${PROMPT_DEFAULTS[VIM_COLOR_ALT]}}
 
     local color icon
@@ -245,7 +255,8 @@ function prompt_marker {
 
   # if icon is more than one character
   # recalculate width and set prefix
-  if [[ $icon_len -gt 1 ]]; then
+  if [[ $icon_len -gt 1 ]]
+  then
     prefix_len=$((icon_len - 1))
     width=$((width - prefix_len))
     prefix=${icon[1,$prefix_len]}
@@ -263,7 +274,8 @@ function precmd {
   local spacer
 
   # output marker
-  if [[ -v PROMPT_MARKER_ICON ]]; then
+  if [[ -v PROMPT_MARKER_ICON ]]
+  then
     print -Pr "$(prompt_marker)"
   fi
 
