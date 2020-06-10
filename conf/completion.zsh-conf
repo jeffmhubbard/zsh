@@ -28,7 +28,7 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*:messages' format '%d'
-zstyle ':completion:*:warnings' format "%BNo matches for: $fg[yellow]%d$reset_color%b"
+#zstyle ':completion:*:warnings' format "%BNo matches for: $fg[yellow]%d$reset_color%b"
 zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
 zstyle ':completion:*' group-name ''
 
