@@ -23,7 +23,6 @@ then
 fi
 compinit -i -C -d "${ZSH_COMPDUMP}"
 
-
 # load plugins
 for plugin in $plugins
 do
@@ -34,7 +33,6 @@ do
   done
 done
 unset plugin plugdir script
-
 
 # load config files
 for config in $(ls $ZSH_CONF_DIR/*.zsh-conf)
