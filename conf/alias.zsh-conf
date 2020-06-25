@@ -54,6 +54,9 @@ alias update_zsh_plugins="${ZSH_PLUGIN_DIR} && find . -name .git -type d -execdi
 alias weather="curl -s 'wttr.in/aus?0'"
 alias forecast="curl -s 'wttr.in/aus'"
 
+# menuz
+alias m='menuz'
+alias me='menuz -e'
 
 # load alias snippets
 [[ ! -d $ZSH_CONF_DIR/alias ]] && return

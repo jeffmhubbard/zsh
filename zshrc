@@ -12,7 +12,7 @@ export ZSH=$HOME/.zsh
 #ZSH_THEME="none"
 
 # define plugins
-typeset -a plugins=(
+plugins=(
   zsh-completions
   zsh-autosuggestions
   zsh-autopair
