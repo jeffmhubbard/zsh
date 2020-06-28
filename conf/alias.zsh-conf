@@ -4,6 +4,15 @@
 # set aliases and load additional alias configs
 #
 
+# load alias snippets
+[[ ! -d $ZSH/alias ]] && return
+
+for config in $(ls $ZSH/alias/*.zsh-conf)
+do
+  source $config
+done
+unset config
+
 # common
 alias _='sudo '
 
@@ -34,8 +43,8 @@ alias hsi='history | grep -i'
 
 alias ip="ip -c"
 
-alias psc="ps -eo pid,cmd,%cpu --sort=-%cpu | head"
-alias psm="ps -eo pid,cmd,%mem --sort=-%mem | head"
+alias psc="ps -eo pid,cmd,%cpu --sort=-%cpu | head -11"
+alias psm="ps -eo pid,cmd,%mem --sort=-%mem | head -11"
 
 alias -g H='| head'
 alias -g T='| tail'
@@ -57,14 +66,5 @@ alias forecast="curl -s 'wttr.in/aus'"
 # menuz
 alias m='menuz'
 alias me='menuz -e'
-
-# load alias snippets
-[[ ! -d $ZSH_CONF_DIR/alias ]] && return
-
-for config in $(ls $ZSH_CONF_DIR/alias/*.zsh-conf)
-do
-  source $config
-done
-unset config
 
 # # vim: set ft=zsh ts=2 sw=0 et:
