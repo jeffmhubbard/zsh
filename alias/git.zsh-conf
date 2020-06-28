@@ -9,7 +9,7 @@ alias gc='git commit -v'
 alias gcb='git checkout -b'
 alias gcf='git config --list'
 alias gcl='git clone --recurse-submodules'
-alias gcm='git checkout master'
+alias gcm='git checkout main'
 alias gco='git checkout'
 #forgit #alias gd='git diff'
 #forgit #alias glo="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
