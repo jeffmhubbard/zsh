@@ -43,6 +43,8 @@ alias hsi='history | grep -i'
 
 alias ip="ip -c"
 
+alias fp='pgrep -ax '
+
 alias psc="ps -eo pid,cmd,%cpu --sort=-%cpu | head -11"
 alias psm="ps -eo pid,cmd,%mem --sort=-%mem | head -11"
 

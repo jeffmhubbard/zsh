@@ -11,9 +11,9 @@ setopt prompt_subst
 setopt transient_rprompt
 
 # load prompt theme
-if test -f ${ZSH_THEME_DIR}/$ZSH_THEME.zsh-theme
+if test -f $ZSH_THEME_DIR/$ZSH_THEME.zsh-theme
 then
-  source ${ZSH_THEME_DIR}/$ZSH_THEME.zsh-theme
+  source $ZSH_THEME_DIR/$ZSH_THEME.zsh-theme
 fi
 
 # default theme
@@ -28,7 +28,7 @@ typeset -A PROMPT_DEFAULTS=(
   [SSH_ICON]="@"
   [PATH_COLOR]="%B%F{blue}"
   [PATH_ICON]=""
-  [PATH_FORMAT]="%(3~|.../%2~|%~)"
+  [PATH_FORMAT]="%(4~|%2~|%~)"
   [GIT_COLOR]="%B%F{red}"
   [GIT_ICON]=" "
   [GIT_SHA_COLOR]="%B%F{red}"
