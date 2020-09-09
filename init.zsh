@@ -8,25 +8,27 @@
 [[ ! -o interactive ]] && return
 
 # paths
-ZSH_CACHE_DIR="${ZSH}/cache"
-ZSH_CONF_DIR="${ZSH}/conf"
-ZSH_PLUGIN_DIR="${ZSH}/plugins"
-ZSH_THEME_DIR="${ZSH}/themes"
+ZCACHEDIR="$ZDOTDIR/cache"
+ZCONFDIR="$ZDOTDIR/conf"
+ZPLUGDIR="$ZDOTDIR/plugins"
+ZTHEMEDIR="$ZDOTDIR/themes"
 
-[[ ! -d $ZSH_CACHE_DIR ]] && mkdir -p $ZSH_CACHE_DIR
+[[ ! -d $ZCACHEDIR ]] && mkdir -p $ZCACHEDIR
 
 # setup completion
 autoload -U compaudit compinit
 if [ -z "$ZSH_COMPDUMP" ]
 then
-  ZSH_COMPDUMP="${ZSH_CACHE_DIR}/completions.db"
+  ZSH_COMPDUMP="${ZCACHEDIR}/completions.db"
 fi
 compinit -i -C -d "${ZSH_COMPDUMP}"
 
 # load plugins
 for plugin in $plugins
 do
-  plugdir=${ZSH_PLUGIN_DIR}/$plugin
+  plugdir=${ZPLUGDIR}/$plugin
+  # look for plugin file in this order: *.plugin.zsh, *.zsh, *.sh
+  # stop loop on first match
   for script in $plugdir/$plugin.plugin.zsh $plugdir/$plugin.zsh $plugdir/$plugin.sh
   do
     [[ -f $script ]] && { source $script; break }
@@ -35,7 +37,7 @@ done
 unset plugin plugdir script
 
 # load config files
-for config in $(ls $ZSH_CONF_DIR/*.zsh-conf)
+for config in $(ls $ZCONFDIR/*.zsh-conf)
 do
   source $config
 done

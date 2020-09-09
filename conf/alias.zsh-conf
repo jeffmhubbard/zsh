@@ -1,72 +1,11 @@
-# conf/alias.zsh
-
-#
-# set aliases and load additional alias configs
-#
-
 # load alias snippets
-[[ ! -d $ZSH/alias ]] && return
 
-for config in $(ls $ZSH/alias/*.zsh-conf)
+[[ ! -d $ZCONFDIR/alias ]] && return
+
+for config in $(ls $ZCONFDIR/alias/*.zsh-conf)
 do
   source $config
 done
 unset config
 
-# common
-alias _='sudo '
-
-alias -g ...='../..'
-alias -g ....='../../..'
-alias -g .....='../../../..'
-alias -g ......='../../../../..'
-
-alias md='mkdir -p'
-alias rd=rmdir
-
-alias ls='ls --color=auto'
-alias lsa='ls -lah'
-alias l='ls -lah'
-alias ll='ls -lh'
-alias la='ls -lAh'
-
-alias grep="grep -s --color=auto"
-alias egrep="egrep -s --color=auto"
-alias fgrep="fgrep -s --color=auto"
-
-alias cat="bat -pp"
-alias less=bat
-
-alias h='history'
-alias hs='history | grep'
-alias hsi='history | grep -i'
-
-alias ip="ip -c"
-
-alias fp='pgrep -ax '
-
-alias psc="ps -eo pid,cmd,%cpu --sort=-%cpu | head -11"
-alias psm="ps -eo pid,cmd,%mem --sort=-%mem | head -11"
-
-alias -g H='| head'
-alias -g T='| tail'
-alias -g G='| grep'
-alias -g NE="2> /dev/null"
-alias -g NUL="> /dev/null 2>&1"
-
-# dotfiles git alias
-alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-
-# update plugins
-alias update_vim_plugins="~/.vim/bundle && find . -name .git -type d -execdir git pull ';'"
-alias update_zsh_plugins="${ZSH_PLUGIN_DIR} && find . -name .git -type d -execdir git pull ';'"
-
-# wttr
-alias weather="curl -s 'wttr.in/aus?0'"
-alias forecast="curl -s 'wttr.in/aus'"
-
-# menuz
-alias m='menuz'
-alias me='menuz -e'
-
-# # vim: set ft=zsh ts=2 sw=0 et:
+# vim: set ft=zsh ts=2 sw=0 et:

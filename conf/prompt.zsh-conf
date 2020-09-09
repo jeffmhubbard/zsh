@@ -11,9 +11,9 @@ setopt prompt_subst
 setopt transient_rprompt
 
 # load prompt theme
-if test -f $ZSH_THEME_DIR/$ZSH_THEME.zsh-theme
+if test -f $ZTHEMEDIR/$ZSH_THEME.zsh-theme
 then
-  source $ZSH_THEME_DIR/$ZSH_THEME.zsh-theme
+  source $ZTHEMEDIR/$ZSH_THEME.zsh-theme
 fi
 
 # default theme
@@ -76,7 +76,7 @@ function prompt_userhost {
 
   # detect root
   if [ $UID -eq 0 ]
-  then \
+  then
     user_color=${PROMPT_ROOT_COLOR:-${PROMPT_DEFAULTS[ROOT_COLOR]}}
     user_icon=${PROMPT_ROOT_ICON:-${PROMPT_DEFAULTS[ROOT_ICON]}}
   fi
@@ -108,8 +108,6 @@ function prompt_gitinfo {
   then
     typeset -g ZSH_THEME_GIT_PROMPT_PREFIX=""
     typeset -g ZSH_THEME_GIT_PROMPT_SUFFIX=""
-    typeset -g ZSH_THEME_GIT_PROMPT_DIRTY=""
-    typeset -g ZSH_THEME_GIT_PROMPT_CLEAN=""
     typeset -g ZSH_THEME_GIT_PROMPT_ADDED=${PROMPT_GIT_STATE_ADDED:-${PROMPT_DEFAULTS[GIT_STATE_ADDED]}}
     typeset -g ZSH_THEME_GIT_PROMPT_MODIFIED=${PROMPT_GIT_STATE_MODIFIED:-${PROMPT_DEFAULTS[GIT_STATE_MODIFIED]}}
     typeset -g ZSH_THEME_GIT_PROMPT_DELETED=${PROMPT_GIT_STATE_DELETED:-${PROMPT_DEFAULTS[GIT_STATE_DELETED]}}

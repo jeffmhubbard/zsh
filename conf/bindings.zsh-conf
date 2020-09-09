@@ -1,7 +1,4 @@
-# conf/bindings.zsh
-
-# setup key bindings
-# this is mostly OMZ vi-mode plugin
+# key bindings
 
 # Make sure that the terminal is in application mode when zle is active, since
 # only then values from $terminfo are valid
