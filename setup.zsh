@@ -3,28 +3,15 @@
 # install zsh.d
 
 # zsh config
-src_url="https://code.linuxit.us/zsh.d"
+src_url="https://gitlab.com/jeffmhubbard/zsh.d"
+#src_url="https://github.com/jeffmhubbard/zsh.d"
+#src_url="https://code.linuxit.us/zsh.d"
 
 # install to
 dest_dir="$HOME/.zsh.d"
 
-# install plugins from github
-# key: name of plugin, used in .zshrc
-# value: github user/repo
-typeset -A plugins
-plugins=(
-  [zsh-autosuggestions]="zsh-users/zsh-autosuggestions"
-  [zsh-history-substring-search]="zsh-users/zsh-history-substring-search"
-  [zsh-completions]="zsh-users/zsh-completions"
-  [fast-syntax-highlighting]="zdharma/fast-syntax-highlighting"
-  [autoswitch_virtualenv]="MichaelAquilina/zsh-autoswitch-virtualenv"
-  [auto-notify]="MichaelAquilina/zsh-auto-notify"
-  [you-should-use]="MichaelAquilina/zsh-you-should-use"
-  [autopair]="hlissner/zsh-autopair"
-  [z]="rupa/z"
-  [fz]="changyuheng/fz"
-  [forgit]="wfxr/forgit"
-)
+# plugins
+plugin_lst="$dest_dir/plugins.txt"
 
 # check for git
 if ! command -v git &>/dev/null
@@ -63,19 +50,29 @@ else
 fi
 
 # get plugins
-mkdir -p $dest_dir/plugins &>/dev/null
+if test -f $plugin_lst
+then
+  mkdir -p $dest_dir/plugins &>/dev/null
 
-echo "Fetching plugins..."
-for dest url in ${(kv)plugins}
-do
-  url="https://github.com/$url"
-  dest="$dest_dir/plugins/$dest"
-  if ! test -d $dest
-  then
-    git clone $url $dest
-  fi
-done
-unset dest url
+  echo "Reading plugin list..."
+  typeset -A plugins
+  while read name url
+  do
+    plugins[$name]="$url"
+  done < $plugin_lst
+  unset name url
+
+  echo "Fetching plugins..."
+  for dest url in ${(kv)plugins}
+  do
+    dest="$dest_dir/plugins/$dest"
+    if ! test -d $dest
+    then
+      git clone $url $dest
+    fi
+  done
+  unset dest url
+fi
 
 echo "Done!"
 exit 0

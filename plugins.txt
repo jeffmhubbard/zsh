@@ -1,0 +1,11 @@
+zsh-autosuggestions https://github.com/zsh-users/zsh-autosuggestions
+zsh-completions https://github.com/zsh-users/zsh-completions
+zsh-history-substring-search https://github.com/zsh-users/zsh-history-substring-search
+fast-syntax-highlighting https://github.com/zdharma/fast-syntax-highlighting
+autopair https://github.com/hlissner/zsh-autopair
+autoswitch_virtualenv https://github.com/MichaelAquilina/zsh-autoswitch-virtualenv
+auto-notify https://github.com/MichaelAquilina/zsh-auto-notify
+you-should-use https://github.com/MichaelAquilina/zsh-you-should-use
+z https://github.com/rupa/z
+fz https://github.com/changyuheng/fz
+forgit https://github.com/wfxr/forgit

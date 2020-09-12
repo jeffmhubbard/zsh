@@ -8,6 +8,7 @@
 [[ ! -o interactive ]] && return
 
 # paths
+ZALIASDIR="$ZDOTDIR/alias"
 ZCACHEDIR="$ZDOTDIR/cache"
 ZCONFDIR="$ZDOTDIR/conf"
 ZPLUGDIR="$ZDOTDIR/plugins"
@@ -27,8 +28,6 @@ compinit -i -C -d "${ZSH_COMPDUMP}"
 for plugin in $plugins
 do
   plugdir=${ZPLUGDIR}/$plugin
-  # look for plugin file in this order: *.plugin.zsh, *.zsh, *.sh
-  # stop loop on first match
   for script in $plugdir/$plugin.plugin.zsh $plugdir/$plugin.zsh $plugdir/$plugin.sh
   do
     [[ -f $script ]] && { source $script; break }
@@ -38,6 +37,13 @@ unset plugin plugdir script
 
 # load config files
 for config in $(ls $ZCONFDIR/*.zsh-conf)
+do
+  source $config
+done
+unset config
+
+# load alias files
+for config in $(ls $ZALIASDIR/*.zsh-conf)
 do
   source $config
 done
