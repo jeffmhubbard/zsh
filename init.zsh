@@ -14,26 +14,32 @@ ZCONFDIR="$ZDOTDIR/conf"
 ZPLUGDIR="$ZDOTDIR/plugins"
 ZTHEMEDIR="$ZDOTDIR/themes"
 
-[[ ! -d $ZCACHEDIR ]] && mkdir -p $ZCACHEDIR
+if ! test -d $ZCACHEDIR
+then
+  mkdir -p $ZCACHEDIR &> /dev/null
+fi
 
 # setup completion
 autoload -U compaudit compinit
-if [ -z "$ZSH_COMPDUMP" ]
+if test -z "$ZSH_COMPDUMP"
 then
   ZSH_COMPDUMP="${ZCACHEDIR}/completions.db"
 fi
 compinit -i -C -d "${ZSH_COMPDUMP}"
 
 # load plugins
-for plugin in $plugins
-do
-  plugdir=${ZPLUGDIR}/$plugin
-  for script in $plugdir/$plugin.plugin.zsh $plugdir/$plugin.zsh $plugdir/$plugin.sh
+if test -d $ZPLUGDIR
+then
+  for plugin in $plugins
   do
-    [[ -f $script ]] && { source $script; break }
+    plugdir=$ZPLUGDIR/$plugin
+    for script in $plugdir/$plugin.plugin.zsh $plugdir/$plugin.zsh $plugdir/$plugin.sh
+    do
+      [[ -f $script ]] && { source $script; break }
+    done
   done
-done
-unset plugin plugdir script
+  unset plugin plugdir script
+fi
 
 # load config files
 for config in $(ls $ZCONFDIR/*.zsh-conf)
