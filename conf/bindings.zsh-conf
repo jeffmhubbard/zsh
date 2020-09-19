@@ -1,27 +1,18 @@
 # key bindings
 
-# Make sure that the terminal is in application mode when zle is active, since
-# only then values from $terminfo are valid
-if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
-  function zle-line-init() {
-    echoti smkx
-  }
-  function zle-line-finish() {
-    echoti rmkx
-  }
-  zle -N zle-line-init
-  zle -N zle-line-finish
-fi
-
 # Updates editor information when the keymap changes.
-function zle-keymap-select() {
+function zle-line-init zle-keymap-select() {
   # update keymap variable for the prompt
   VI_KEYMAP=$KEYMAP
 
+  if (( ${+terminfo[smkx]} )); then
+    echoti smkx
+  fi
   zle reset-prompt
   zle -R
 }
 
+zle -N zle-line-init
 zle -N zle-keymap-select
 
 function vi-accept-line() {
@@ -32,6 +23,7 @@ function vi-accept-line() {
 zle -N vi-accept-line
 
 export KEYTIMEOUT=11
+
 bindkey -v
 
 if [[ "${terminfo[kcuu1]}" != "" ]]; then
@@ -68,4 +60,19 @@ bindkey '^w' backward-kill-word
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
-# vim: set ft=zsh ts=2 sw=0 et:
+# allow delete, home and end keys to work in normal mode as a default behaviour
+if [[ "${terminfo[khome]}" != "" ]]; then
+  bindkey -M vicmd "${terminfo[khome]}" beginning-of-line
+fi
+if [[ "${terminfo[kend]}" != "" ]]; then
+  bindkey -M vicmd "${terminfo[kend]}" end-of-line
+fi
+if [[ "${terminfo[kdch1]}" != "" ]]; then
+  bindkey -M vicmd "${terminfo[kdch1]}" delete-char
+fi
+
+# allow reverse menu complete with [Shift-Tab]
+if [[ "${terminfo[kcbt]}" != "" ]]; then
+  bindkey "${terminfo[kcbt]}" reverse-menu-complete
+fi
+
