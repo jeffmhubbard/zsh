@@ -3,6 +3,4 @@
 autoload -U colors && colors
 
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
-eval "$(dircolors -b $ZTHEMEDIR/dircolors)"
-
-# vim: set ft=zsh ts=2 sw=0 et:
+eval "$(dircolors -b $ZDOTTHEME/dircolors)"

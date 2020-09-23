@@ -33,5 +33,3 @@ function virtualenv_prompt_info(){
   echo "${ZSH_THEME_VIRTUALENV_PREFIX:=[}${VIRTUAL_ENV:t}${ZSH_THEME_VIRTUALENV_SUFFIX:=]}"
 }
 export VIRTUAL_ENV_DISABLE_PROMPT=1
-
-# vim: set ft=zsh ts=2 sw=0 et:

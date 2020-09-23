@@ -11,9 +11,9 @@ setopt prompt_subst
 setopt transient_rprompt
 
 # load prompt theme
-if test -f $ZTHEMEDIR/$ZSH_THEME.zsh-theme
+if test -f $ZDOTTHEME/$ZSH_THEME.zsh-theme
 then
-  source $ZTHEMEDIR/$ZSH_THEME.zsh-theme
+  source $ZDOTTHEME/$ZSH_THEME.zsh-theme
 fi
 
 # default theme

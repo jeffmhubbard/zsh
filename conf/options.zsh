@@ -17,7 +17,7 @@ setopt multios              # Perform implicit tees or cats for multiple redirec
 
 # history options
 
-[ -z "$HISTFILE" ] && HISTFILE="$ZCACHEDIR/history.db"
+[ -z "$HISTFILE" ] && HISTFILE="$ZDOTCACHE/history.db"
 export HISTSIZE=10000
 export SAVEHIST=10000
 

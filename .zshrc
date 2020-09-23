@@ -63,7 +63,7 @@ fi
 
 # configure plugins
 # z
-export _Z_DATA=${ZCACHEDIR}/z.db
+export _Z_DATA=${ZDOTCACHE}/z.db
 
 # forgit
 export FORGIT_FZF_DEFAULT_OPTS="
