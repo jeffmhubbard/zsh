@@ -271,6 +271,10 @@ function precmd {
   local prompt_right right_length
   local spacer
 
+
+  window_title="\033]0;$(basename $SHELL) - ${PWD}\007"
+  echo -ne "$window_title"
+
   # output marker
   if [[ -v PROMPT_MARKER_ICON ]]
   then
