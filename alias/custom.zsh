@@ -2,8 +2,8 @@
 alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
 # update plugins
-alias update_vim_plugins="~/.vim/bundle && find . -name .git -type d -execdir git pull ';'"
-alias update_zsh_plugins="${ZPLUGDIR} && find . -name .git -type d -execdir git pull ';'"
+alias update_vim_plugins="cd ~/.vim/bundle && find . -name .git -type d -execdir git pull ';'"
+alias update_zsh_plugins="cd ${ZDOTPLUG} && find . -name .git -type d -execdir git pull ';'"
 
 # wttr
 alias weather="curl -s 'wttr.in/aus?0'"
