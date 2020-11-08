@@ -266,14 +266,21 @@ function prompt_marker {
   echo "${color}${prefix}$(repeat $width printf "$marker")${endf}"
 }
 
+function prompt_title {
+  # set window title
+  local zsh_ver=$(zsh --version | cut -f1-2 -d' ')
+  local cur_dir="${PWD/#$HOME/~}"
+  local window_title="\033]0;$zsh_ver: $cur_dir\007"
+  echo -ne "$window_title"
+}
+
 function precmd {
   local prompt_left left_length
   local prompt_right right_length
   local spacer
 
-
-  window_title="\033]0;$(basename $SHELL) - ${PWD}\007"
-  echo -ne "$window_title"
+  # set terminal title
+  prompt_title
 
   # output marker
   if [[ -v PROMPT_MARKER_ICON ]]
