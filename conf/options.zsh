@@ -1,5 +1,4 @@
 # shell options
-
 export REPORTTIME=3         # Report time statistics
 setopt notify               # Report status of bg jobs immediately
 setopt no_hup               # Don't kill background jobs when exiting
@@ -7,16 +6,14 @@ setopt no_clobber           # Don't clobber existing files with >
 setopt no_beep              # Don't beep
 setopt no_bg_nice           # Don't frob with nicelevels
 setopt interactive_comments # Allow comments in interactive shells
-setopt no_autoremoveslash   # Don't guess when slashes should be removed (too magic)
+setopt autoremoveslash      # Don't guess when slashes should be removed (too magic)
 setopt no_match             # Show error if globbing fails
 setopt extended_glob        # More globbing characters
 setopt correct              # Offer to correct command if not found
-
 setopt auto_cd              # Change directory without `cd`
 setopt multios              # Perform implicit tees or cats for multiple redirections
 
 # history options
-
 [ -z "$HISTFILE" ] && HISTFILE="$ZDOTCACHE/history.db"
 export HISTSIZE=10000
 export SAVEHIST=10000
@@ -29,7 +26,6 @@ setopt hist_ignore_space      # ignore commands that start with space
 setopt hist_reduce_blanks     # remove superfluous blanks from commands added to history
 setopt hist_verify            # show command with history expansion to user before running it
 setopt inc_append_history     # add commands to HISTFILE in order of execution
-#setopt share_history          # share command history data
 setopt append_history         # append to history
 setopt hist_find_no_dups      # don't show dups in history search
 
