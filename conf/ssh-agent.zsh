@@ -2,7 +2,7 @@ typeset _agent_forwarding _ssh_env_cache
 
 function _start_agent() {
 	local lifetime
-	zstyle -s :omz:plugins:ssh-agent lifetime lifetime
+	zstyle -s :zshd:conf:ssh-agent lifetime lifetime
 
 	# start ssh-agent and setup environment
 	echo Starting ssh-agent...
@@ -14,7 +14,7 @@ function _start_agent() {
 function _add_identities() {
 	local id line sig lines
 	local -a identities loaded_sigs loaded_ids not_loaded
-	zstyle -a :omz:plugins:ssh-agent identities identities
+	zstyle -a :zshd:conf:ssh-agent identities identities
 
 	# check for .ssh folder presence
 	if [[ ! -d $HOME/.ssh ]]; then
@@ -52,10 +52,10 @@ function _add_identities() {
 }
 
 # Get the filename to store/lookup the environment from
-_ssh_env_cache="$HOME/.ssh/environment-$SHORT_HOST"
+_ssh_env_cache="$HOME/.ssh/environment-$(uname -n)"
 
 # test if agent-forwarding is enabled
-zstyle -b :omz:plugins:ssh-agent agent-forwarding _agent_forwarding
+zstyle -b :zshd:conf:ssh-agent agent-forwarding _agent_forwarding
 
 if [[ $_agent_forwarding == "yes" && -n "$SSH_AUTH_SOCK" ]]; then
 	# Add a nifty symlink for screen/tmux if agent forwarding
