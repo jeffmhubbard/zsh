@@ -3,9 +3,9 @@
 # install zsh.d
 
 # zsh config
-src_url="https://gitlab.com/jeffmhubbard/zsh.d"
+#src_url="https://gitlab.com/jeffmhubbard/zsh.d"
 #src_url="https://github.com/jeffmhubbard/zsh.d"
-#src_url="https://code.linuxit.us/zsh.d"
+src_url="https://git.linuxit.us/spider/zsh.d"
 
 # install to
 dest_dir="$HOME/.zsh.d"

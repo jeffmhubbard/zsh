@@ -23,6 +23,7 @@ fi
 
 # setup completion
 autoload -U compaudit compinit
+autoload -U +X bashcompinit && bashcompinit
 if test -z "$ZSH_COMPDUMP"
 then
   ZSH_COMPDUMP="$ZDOTCACHE/completions.db"

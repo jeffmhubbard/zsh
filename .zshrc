@@ -16,7 +16,6 @@ plugins=(
   autoswitch_virtualenv
   fast-syntax-highlighting
   zsh-history-substring-search
-  ssh-agent
 )
 
 
