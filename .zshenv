@@ -1,3 +1,3 @@
 #!/usr/bin/env zsh
 
-ZDOTDIR=$HOME/.zsh.d
+ZDOTDIR=$HOME/.zsh
