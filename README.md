@@ -1,5 +1,15 @@
-# zsh setup
+# zsh config
 
+Deploy with `setup_zsh.fyi` in `penguin-dev-tools`
+
+#### Additional Steps
+
+Generate `ssh` keys:
 ```sh
-zsh -c "$(curl -fsSL https://git.linuxit.us/spider/zsh.d/raw/branch/main/setup.zsh)"
+ssh-keygen -t rsa
+```
+
+Load `antsy` syntax highlighting:
+```sh
+fast-theme ~/.zsh/themes/antsy.ini
 ```
